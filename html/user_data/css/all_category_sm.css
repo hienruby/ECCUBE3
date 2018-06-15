@@ -1,0 +1,187 @@
+
+.sm:nth-child(1) {
+    background: url(/user_data/images/shirt.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+   }
+.sm:nth-child(2) {
+    background: url(/user_data/images/women-pant.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+    }
+.sm:nth-child(3) {
+    background: url(/user_data/images/women-coat.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+}
+.sm:nth-child(4) {
+    background: url(/user_data/images/coat.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+}
+.sm:nth-child(5) {
+    background: url(/user_data/images/longdress.png);
+    background-repeat: no-repeat;
+   background-position-y: 10px;
+}
+.sm:nth-child(6) {
+    background: url(/user_data/images/dance.png);
+    background-repeat: no-repeat;
+     background-position-y: 10px;
+}
+.sm:nth-child(7) {
+    background: url(/user_data/images/women-bath.png);
+    background-repeat: no-repeat;
+     background-position-y: 10px;
+}
+.sm:nth-child(8) {
+    background: url(/user_data/images/shose.png);
+    background-repeat: no-repeat;
+     background-position-y: 10px;
+}
+.sm:nth-child(9) {
+    background: url(/user_data/images/man.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+}
+.sm:nth-child(10) {
+    background: url(/user_data/images/teddy.png);
+    background-repeat: no-repeat;
+    background-position-y: 10px;
+}
+.sm:nth-child(11) {
+    background: url(/user_data/images/handbag.png);
+    background-repeat: no-repeat;
+     background-position-y: 10px;
+}
+.sm:nth-child(12) {
+    background: url(/user_data/images/book.png);
+    background-repeat: no-repeat;
+     background-position-y: 10px;
+}
+.sm ul li:nth-child(1), .sm ul li:nth-child(2), .sm ul li:nth-child(3), .sm ul li:nth-child(4),
+.sm ul li:nth-child(5), .sm ul li:nth-child(6), .sm ul li:nth-child(7), .sm ul li:nth-child(8),
+.sm ul li:nth-child(9), .sm ul li:nth-child(10), .sm ul li:nth-child(11), .sm ul li:nth-child(12){
+    background: none;
+}
+
+
+.category-nav6 li ul {
+    padding-left:10px;
+    width: 100%;
+}
+.category-nav6 li {
+    position: relative;
+    display: block;
+  
+    line-height:30px;
+}
+.category-nav6 li ul, .category-nav6 li ul li ul{
+    display:none;
+}
+
+.category-nav6 li > a {
+    color:black;
+    display: inline-block;
+    font-size:13px;
+    line-height:30px;
+    padding-left: 10px;
+    position: relative;
+    z-index: 10;
+}
+.category-nav6 li > a:hover{ }
+.category-nav6 li {
+    background-repeat:no-repeat;
+    background-size: 5px 30px;
+}
+
+.item_gallery h4 + .border > .sp-catBox {
+    margin-top: 3px;
+}
+
+
+.sp-cat6 .category-nav6 li ul{
+    transition: none;
+
+}
+.sp-cat6 .category-nav6 li a{
+    background-size: 5px 100%;
+    display: inline-block;
+    height: 40px;
+    font-size: 15px;
+    line-height: 40px;
+    margin: 0;
+    padding: 0 0 0 30px;
+    position: relative;
+    z-index: 2;
+}
+.sp-cat6 .category-nav6 li ul li a{
+    font-size: 12px;
+    line-height: 30px;
+    height: 30px;
+    }
+.sp-cat6 .category-nav6 li a:hover {
+    opacity: .7;
+    background-color: transparent;
+}
+
+.sp-catBox .category-nav6 span {
+  
+}
+.sp-catBox .category-nav6 span:hover {
+    cursor: pointer;
+    opacity: .7;
+}
+.drawer.sp .sp-catBox .category-nav6 span {
+　　height: 30px;
+}
+
+
+.sp-catBox .category-nav6 li ul {
+　　width: 100%;
+}
+.sp-catBox .category-nav6 li ul,
+.sp-catBox .category-nav6 li li {
+    
+}
+.sp-catBox .category-nav6 li ul li:first-child {
+    border-top: none;
+}
+
+.sp-catBox .category-nav6 > li:hover>ul {
+    display: none;
+}
+.sp-cat6 {
+　　display: block;
+}
+.cate-left{
+    padding-bottom:0px;
+}
+.trigger:after{
+    content: "›";
+    float: right;
+}
+.open.trigger:after{
+    content: "«";
+    float: right;
+}
+.sub{
+    clear: both;
+    border:1px solid gray;
+}
+@media only screen and (max-width: 800px){
+.sp-cat2 .category-nav6 li a {
+   
+    height: 25px;
+    font-size: 13px;
+}
+.sp-catBox .category-nav6 li  li{
+   width:100%;
+}
+.sp-catBox .category-nav6 li  li a{
+   font-size: 
+}
+.s{
+border: 1px solid #dfdede;
+}
+}

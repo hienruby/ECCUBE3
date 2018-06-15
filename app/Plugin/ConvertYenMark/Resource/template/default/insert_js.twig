@@ -1,0 +1,12 @@
+<script>
+	$(function() {
+		$('select[name=classcategory_id1], select[name=classcategory_id2]')
+				.change(function() {
+					$('.price01_default, .price02_default').each(
+							function(){
+								$(this).text($(this).text().replace(/¥[\s　]*([\d,]+)/, '$1円'));
+							}
+					);
+				});
+	});
+</script>

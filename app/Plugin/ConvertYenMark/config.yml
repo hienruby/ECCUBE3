@@ -1,0 +1,6 @@
+name: ¥ → 円 表記切り替えプラグイン
+code: ConvertYenMark
+version: 1.0.0
+event: ConvertYenMarkEvent
+service:
+    - ConvertYenMarkServiceProvider

@@ -1,0 +1,99 @@
+.small {
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+}
+.sanpham {
+    padding: 5px;
+}
+.sanpham a{
+   color: black;
+    display: block;
+    border: 1px solid #c4c2c2;
+    padding: 13px 15px 13px 35px;
+}
+.sanpham a:hover{
+ background: #999b9b30;
+opacity:5;
+}
+.sanpham a::after { 
+    content: "›";
+    float: right;
+}
+.sanpham:nth-child(1){ 
+   background: url(/user_data/images/shirt2.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(2){ 
+  background: url(/user_data/images/women-pant1.png);
+  background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(3){ 
+   background: url(/user_data/images/women-coat1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(4){ 
+   background: url(/user_data/images/icon.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(5){ 
+   background: url(/user_data/images/dress1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.sanpham:nth-child(6){ 
+    background: url(/user_data/images/dance1.png);
+    background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.sanpham:nth-child(7){ 
+   background: url(/user_data/images/bath1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.sanpham:nth-child(8){ 
+   background: url(/user_data/images/shoes1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(9){ 
+    background: url(/user_data/images/man1.png);
+    background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.sanpham:nth-child(10){ 
+   background: url(/user_data/images/kid1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.sanpham:nth-child(11){ 
+   background: url(/user_data/images/bag1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.sanpham:nth-child(12){ 
+   background: url(/user_data/images/book2.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}

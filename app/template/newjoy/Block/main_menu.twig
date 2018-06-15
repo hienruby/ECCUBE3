@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="/user_data/css/category_main1.css">
+<style>
+.sanpham a::after {
+    content: "›";
+    float: right;
+}
+@font-face {
+  font-family: myFirstFont;
+  src: url('/user_data/font/DIDOTLTSTD-ITALIC_2.OTF');
+}
+
+.title h4 {
+  font-family:myFirstFont!important;
+  text-align:center;
+  font-size: 30px;
+  font-weight: normal;
+}
+</style>
+<div class=" mainmenu">
+  <div class="row ">
+    <div class="col-sm-12">
+
+      <div id="cate-left" class="title">
+        <h4>  Category
+<p class="small"> ✦  カテゴリ一覧  ✦</p></h4>
+        <div class="">
+          <div class="">
+
+            {% macro tree(Category) %}
+            {% if Category.id != 63 %}
+            <li class="col-md-3 col-xs-6 sanpham">
+                <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    {{ Category.name }}
+                </a>
+            </li>
+            {% endif %}
+            {% endmacro %}
+
+            <ul class="category-nav1">
+              {% for Category in Categories %}
+              {{ _self.tree(Category) }}
+              {% endfor %}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

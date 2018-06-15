@@ -1,0 +1,228 @@
+ .item_name {
+    color: #525263;
+    margin: 0 0 8px;
+}
+.h-name {
+    color: black;
+    text-align: center;
+}
+ .mainmenu{
+    display: none;
+ }
+@font-face {
+  font-family: myFirstFont;
+  src: url('/user_data/font/DIDOTLTSTD-ITALIC_2.OTF');
+}
+
+.title h4 {
+  font-family:myFirstFont!important;
+  text-align:center;
+  font-size: 30px;
+  font-weight: normal;
+  padding-bottom: 10px;
+}
+.sanpham1 {
+    padding: 5px;
+}
+#side_left{
+display:none;
+}
+#main{
+width:100%!important;
+}
+.sanpham1 a{
+   color: black;
+    display: block;
+    padding: 13px 0px 13px 16px;
+    width: 50%;
+    float: left;
+    position: relative;
+    bottom: -68px;
+    font-weight: bold;
+}
+.sub_category{
+  width:50%;
+  float:left;
+  
+}
+.sub_category li a{
+width:100%;
+position: relative;
+bottom: 0;
+font-weight: normal;
+}
+.sanpham1 a:hover{
+    text-decoration: underline;
+    color: #ea8194;
+}
+.sanpham1 a::after { 
+    /*content: "›";*/
+    float: right;
+}
+.category-nav5 li ul li{
+width:100%;
+border:none;
+height:auto;
+padding:0;
+  }
+.category-nav5{
+border-top: 1px #ccc solid;
+}
+.category-nav5 li{
+border-right: 1px #ccc solid;
+    border-bottom: 1px #ccc solid;
+height:230px;
+width:25%;
+float:left;
+}
+.category-nav5 li:nth-child(1), .category-nav5 li:nth-child(5) , .category-nav5 li:nth-child(9){
+border-left:1px #ccc solid;
+}
+.category-nav5 li ul li:nth-child(1), .category-nav5 li ul li:nth-child(5) , .category-nav5 li ul li:nth-child(9){
+border:none;
+}
+.category-nav5 li ul li a{
+  background: none;
+  padding: 5px 0;
+  font-size: 13px;
+}
+.category-nav5 li ul li ul li{
+  width: 100%;
+  display: none;
+}
+.category-nav5 li:nth-child(1){ 
+   background: url(/user_data/images/shirt2.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(1){ 
+   background: none;
+}
+.category-nav5 li:nth-child(2){ 
+   background: url(/user_data/images/women-pant1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(2){ 
+   background: none;
+}
+.category-nav5 li:nth-child(3){ 
+   background: url(/user_data/images/women-coat1.png);
+   background-repeat: no-repeat;
+  background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(3){ 
+   background: none;
+}
+.category-nav5 li:nth-child(4){ 
+   background: url(/user_data/images/icon.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(4){ 
+   background: none;
+}
+.category-nav5 li:nth-child(5){ 
+   background: url(/user_data/images/dress1.png);
+   background-repeat: no-repeat;
+  background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(5){ 
+   background: none;
+}
+.category-nav5 li:nth-child(6){ 
+   background: url(/user_data/images/dance1.png);
+   background-repeat: no-repeat;
+    background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(6){ 
+   background: none;
+}
+.category-nav5 li:nth-child(7){ 
+   background: url(/user_data/images/bath1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(7){ 
+   background: none;
+}
+.category-nav5 li:nth-child(8){ 
+   background: url(/user_data/images/shoes1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(8){ 
+   background: none;
+}
+.category-nav5 li:nth-child(9){ 
+   background: url(/user_data/images/man1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(9){ 
+   background: none;
+}
+.category-nav5 li:nth-child(10){ 
+   background: url(/user_data/images/kid1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(10){ 
+   background: none;
+}
+.category-nav5 li:nth-child(11){ 
+   background: url(/user_data/images/bag1.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(11){ 
+   background: none;
+}
+.category-nav5 li:nth-child(12){ 
+   background: url(/user_data/images/book2.png);
+   background-repeat: no-repeat;
+   background-position: 12px 15px;
+}
+.category-nav5 li ul li:nth-child(12){ 
+   background: none;
+}
+@media only screen and (max-width: 700px){
+
+.category-nav5 li {
+    width: 100%;
+    float: left;
+    border-left: 1px #ccc solid;
+}
+.sanpham1 a {
+   color: black;
+    display: block;
+    padding: 13px 15px 13px 12px;
+    float: left;
+    position: relative;
+    bottom: -70px;
+    font-weight: bold;
+}
+.sub_category li a {
+    
+}
+}
+@media only screen and (max-width: 1000px){
+
+.category-nav5 li {
+    width: 50%;
+    float: left;
+    border-left: 1px #ccc solid;
+}
+.sanpham1 a {
+   color: black;
+    display: block;
+    padding: 13px 15px 13px 12px;
+    float: left;
+    position: relative;
+    bottom: -70px;
+    font-weight: bold;
+}
+.sub_category li a {
+    
+}
+}

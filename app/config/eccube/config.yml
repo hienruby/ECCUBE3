@@ -1,0 +1,12 @@
+auth_magic: tQ5gdJcaFrRGVf7xjxKYrEBUNWrQ8Xga
+password_hash_algos: sha256
+shop_name: NEWJOY
+force_ssl: 1
+admin_allow_host: null
+cookie_lifetime: 0
+locale: ja
+timezone: Asia/Tokyo
+eccube_install: 1
+
+trusted_proxies_connection_only: false
+trusted_proxies: {  }

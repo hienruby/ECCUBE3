@@ -1,0 +1,149 @@
+<?php
+
+/* __string_template__93f6c4953333e4eefb5f12a07f596709278a885fe218d37afae0a97ddef900e4 */
+class __TwigTemplate_5dda55cf3697dd22ac318ec35b421b79df1f54971210db79a427b48d5fa0d0f3 extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 22
+        $this->parent = $this->loadTemplate("default_frame.twig", "__string_template__93f6c4953333e4eefb5f12a07f596709278a885fe218d37afae0a97ddef900e4", 22);
+        $this->blocks = array(
+            'main' => array($this, 'block_main'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "default_frame.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        // line 24
+        $context["body_class"] = "cart_page";
+        // line 22
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 26
+    public function block_main($context, array $blocks = array())
+    {
+        // line 27
+        echo "<style>
+.complete_message {
+    text-align: left;
+    padding-bottom: 50px;
+ }
+.complete_message p {
+   
+ }
+.complete_message h2 {
+    text-align: left;
+ }
+.btn-info {
+    color: #fff;
+    background-color: #131212;
+    border-color: #060606;
+    font-weight: normal;
+    border-radius: 5px;
+}
+.complete_message {
+    text-align: left;
+    padding-bottom:0;
+}
+</style>
+    <h1 class=\"page-heading\">ご注文完了</h1>
+    <div id=\"complete_wrap\" class=\"container-fluid\">
+        <div id=\"complete_flow_box\" class=\"row\">
+            <div id=\"complete_flow_box__body\" class=\"col-md-12\">
+                ";
+        // line 54
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_USER")) {
+            // line 55
+            echo "                <div id=\"complete_flow_box__flow_state\" class=\"flowline step3\">
+                ";
+        } else {
+            // line 57
+            echo "                <div id=\"complete_flow_box__flow_state\" class=\"flowline step4\">
+                ";
+        }
+        // line 59
+        echo "                    <ul id=\"complete_flow_box__flow_state_list\" class=\"clearfix\">
+                        <li><span class=\"flow_number\">1</span><br>カートの商品</li>
+                    ";
+        // line 61
+        if ($this->env->getExtension('Symfony\Bridge\Twig\Extension\SecurityExtension')->isGranted("ROLE_USER")) {
+            // line 62
+            echo "                        <li><span class=\"flow_number\">2</span><br>ご注文内容確認</li>
+                        <li class=\"active\"><span class=\"flow_number\">3</span><br>完了</li>
+                    ";
+        } else {
+            // line 65
+            echo "                        <li><span class=\"flow_number\">2</span><br>お客様情報</li>
+                        <li><span class=\"flow_number\">3</span><br>ご注文内容確認</li>
+                        <li class=\"active\"><span class=\"flow_number\">4</span><br>完了</li>
+                    ";
+        }
+        // line 69
+        echo "                    </ul>
+                </div>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+
+        <div id=\"deliveradd_input\" class=\"row\">
+            <div id=\"deliveradd_input_box\" class=\"col-md-10 col-md-offset-1  col-sx-12\">
+                <div id=\"deliveradd_input_box__message\" class=\"complete_message \">
+                    <h2 class=\"\">ご注文ありがとうございました</h2><br>
+                    <p>ただいま、ご注文の確認メールをお送りさせていただきました。<br />
+                        万一、ご確認メールが届かない場合は、トラブルの可能性もありますので大変お手数ではございますがもう一度お問い合わせいただくか、お電話にてお問い合わせくださいませ。<br />
+                        今後ともご愛顧賜りますようよろしくお願い申し上げます。</p>
+                </div>
+                <div id=\"deliveradd_input_box__top_button\" class=\"row no-padding\">
+                    <div class=\"btn_group col-sm-offset-4 col-sm-4\">
+                        <p>
+                            <a href=\"";
+        // line 86
+        echo $this->env->getExtension('Eccube\Twig\Extension\EccubeExtension')->getUrl("homepage");
+        echo "\" class=\"btn btn-info btn-block\">トップページへ</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+
+    </div>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "__string_template__93f6c4953333e4eefb5f12a07f596709278a885fe218d37afae0a97ddef900e4";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  109 => 86,  90 => 69,  84 => 65,  79 => 62,  77 => 61,  73 => 59,  69 => 57,  65 => 55,  63 => 54,  34 => 27,  31 => 26,  27 => 22,  25 => 24,  11 => 22,);
+    }
+
+    /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
+    public function getSource()
+    {
+        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.27 and will be removed in 2.0. Use getSourceContext() instead.', E_USER_DEPRECATED);
+
+        return $this->getSourceContext()->getCode();
+    }
+
+    public function getSourceContext()
+    {
+        return new Twig_Source("", "__string_template__93f6c4953333e4eefb5f12a07f596709278a885fe218d37afae0a97ddef900e4", "");
+    }
+}

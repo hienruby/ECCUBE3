@@ -1,0 +1,64 @@
+{#
+* Plugin Name : CheckedItem
+*
+* Copyright (C) 2015 BraTech Co., Ltd. All Rights Reserved.
+* http://www.bratech.co.jp/
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+#}
+
+<!--最近チェックした商品-->
+{% if checkedItems %}
+<link rel="stylesheet" href="/user_data/css/check_product.css">
+<div id="checkeditem" class="item_gallery title border">
+  {% if delete == 0 %}
+    <h2 class="heading row ">
+      <h4 class=" col-md-12 ">Checked items
+</h4>
+<p class="small col-md-12">✦ 最近チェックした商品 ✦ </p>
+
+      <div class="heading02">
+        <a href="{{ url('block_checkeditem_delete')}}" class="btn xoa btn-sm">履歴を削除</a>
+      </div>
+    </h2>
+  {% else %}
+    <h2 class="heading">最近チェックした商品</h2>
+  {% endif %}
+    <div class="row">
+      {% for checkedItem in checkedItems|slice(0,5)  %}
+        <div class="five-co">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': checkedItem.id}) }}">
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ checkedItem.main_list_image|no_image_product }}"></div>
+                    <dl>
+                     <!-- <dt class="item_name">{{checkedItem.name}}</dt>-->
+                                     <div class="h-name">
+                                    <script>
+                                    <!--
+                                    var x = "{{checkedItem.name}}";
+                                    document.write(x.slice(0,28)); //-->
+                                    </script>...
+                                    </div>
+                      <dd class="item_price">
+                      {% if checkedItem.hasProductClass -%}
+                          {% if checkedItem.getPrice02Min == checkedItem.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ checkedItem.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif checkedItem.getPrice02Min is not null and checkedItem.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ checkedItem.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ checkedItem.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if checkedItem.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ checkedItem.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                      </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+
+</div>
+{% endif %}

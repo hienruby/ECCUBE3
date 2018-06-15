@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/user_data/css/admin3.css">
+<link rel="stylesheet" href="/user_data/css/sm-cate.css">
+<div class="sm">
+<div id="" class="title">
+<h4>  Category
+<p class="small"> ✦  カテゴリ一覧  ✦</p></h4>
+            <div class="navbar-default sidebar1" >
+                <div class="sidebar-nav ">
+            {% macro tree(Category) %}
+            {% if Category.id != 63 %}
+            <li class="treeview col-xs-12">
+               <a class="" href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    {{ Category.name }}
+         <span class=" s pull-right-container">
+         <i class="fa fa-angle-right pull-right"></i>
+            </span>                </a>        
+              {% if Category.children|length > 0 %}
+                
+                <ul class="treeview-menu">
+              <li class=" col-xs-6">
+                <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    すべて
+                </a>
+                </li>
+                  {% for ChildCategory in Category.children %}
+                    {{ _self.tree(ChildCategory) }}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+            {% endif %}
+            {% endmacro %}
+              <ul class="sidebar-menu" data-widget="tree">
+              {% for Category in Categories %}
+              {{ _self.tree(Category) }}
+              {% endfor %}
+            </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+</div>
+</div>
+<script src="/user_data/js/adminlte.min.js"></script>
+<script>
+(function($){
+    $('.treeview> a ').on('click',function(){
+        if($(this).hasClass('open')){
+            $(this).removeClass('open');
+            $(this).next().slideUp();
+            $('.treeview-menu li').removeClass('col-xs-12');
+            $('.treeview-menu li').addClass('col-xs-6');
+        }
+        else{
+            $('.treeview-menu li').removeClass('treeview');
+            $(this).removeClass('col-xs-12');
+            $('.treeview-menu li').addClass('col-xs-6');
+            $(this).next().slideDown();
+        }
+    });
+})(jQuery);
+</script>

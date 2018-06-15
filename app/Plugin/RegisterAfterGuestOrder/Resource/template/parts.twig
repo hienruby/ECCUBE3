@@ -1,0 +1,112 @@
+{#
+  This file is part of the RegisterAfterGuestOrder plugin
+
+  Copyright (C) 2017 MURAKAMI INTERNATIONAL LLC. All Rights Reserved.
+
+  Website: http://murakami-international.co.jp
+  E-Mail: info@murakami-international.co.jp
+
+  For the full copyright and license information, please view the LICENSE
+  file that was distributed with this source code.
+#}
+<style type="text/css">
+  
+ 
+#plg_register_after_guest_order_message p {
+    display: block;
+    box-sizing: border-box;
+    font-size: 14px!important;
+    text-align: center;
+    margin: 15px 0 0 0;
+    padding: 20px 0 0 5px;
+    border-top: 1px dotted gray;
+    text-align: left!important;
+}
+#plg_register_after_guest_order_message button {
+    margin: 0 auto;
+    text-align: center;
+    border: 0;
+    width: 216px!important;
+    height: 45px;
+    background: #d6a4b0!important;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+}
+.dl_table dt, .dl_table dd {
+    border-bottom: none!important;  
+}
+.dl_table dl {
+    border-bottom: none;
+}
+#deliveradd_input .dl_table {
+    border-top: none;
+}
+@media only screen and (max-width: 768px){
+  #plg_register_after_guest_order_message button {
+    width: 100%!important;
+    margin-top: 45px !important;
+}
+.dl_table dt label {
+    line-height: 30px!important;
+}
+.dl_table dd {
+    display: block !important;
+    width: 75%;
+    float: left;
+    margin: 10px 0!important;
+}
+.dl_table dt {
+    display: block !important;
+    width: 25%;
+    float: left;
+    padding-top: 30px;
+}
+}
+#plg_register_after_guest_order_message button {
+    margin: 0 auto;
+    text-align: center;
+    border: 0;
+    width: 230px;
+    height: 45px;
+    background: #89c997;
+    color: white;
+    font-size: 17px;
+    font-weight: normal!important;
+    border-radius: 5px!important;
+}
+
+</style>
+<div id="plg_register_after_guest_order_message" class="plg_register_after_guest_order_message" style="text-align: left;">
+                    
+  <h2 style="clear: both; text-align: left; padding-left: 3px">会員登録をしませんか？</h2>
+  <p>只今ご入力いただいた情報をもとに会員登録ができます。
+  <br />
+  会員登録をすれば、次回以降のお買い物時にフォーム入力を省略できますので、楽々ショッピングができたり、その他、お気に入り機能が使えたり、注文履歴が確認できたり、お得情報がメールで届いたり、ポイントをためたり使ったりできたりと、便利です。<br />
+  <br />
+  会員登録をご希望の場合は、以下フォームにご希望のパスワードを入力し、「会員登録する」ボタンを押してください。
+  <br />
+	その後数分でご注文時にご入力いただきましたメールアドレスに仮会員登録のメールが送信されますので、
+  届いたメールに従って本登録をお願いいたします。
+</p>
+
+  {{ form_start(form) }}
+  <div class="dl_table" id="form_plg_register_after_guest_order_password">
+    <dl>
+      <dt>{{ form_label(form.plg_register_after_guest_order_password) }} </dt>
+      <dd>
+        {% for passwordField in form.plg_register_after_guest_order_password %}
+        <div class="form-group {% if passwordField.vars.errors is not empty %}has-error{% endif %}">
+          {{ form_widget(passwordField, { type : 'password' }) }}
+          {{ form_errors(passwordField) }}
+        </div>
+        {% endfor %}
+      </dd>
+    </dl>    
+  </div>
+  <div id="plg_register_after_guest_order_send_wrapper">
+    {{ form_widget(form.plg_register_after_guest_order_send) }}
+  </div>
+  {{ form_end(form) }}
+
+</div>

@@ -1,0 +1,23 @@
+<style>
+.clear{clear: both;
+    padding-top: 61px;}
+.clear a:hover{
+    text-decoration:underline;
+}
+</style>
+<div class="col-md-12 clear">
+    <ul>
+        <li><a href="{{ url('help_about') }}">当サイトについて</a></li>
+        <li><a href="{{ url('help_privacy') }}">プライバシーポリシー</a></li>
+        <li><a href="{{ url('help_tradelaw') }}">特定商取引法に基づく表記</a></li>
+        <li><a href="{{ url('contact') }}">お問い合わせ</a></li>
+    </ul>
+    <div class="footer_logo_area">
+        <p class="logo"><a href="{{ url('homepage') }}"><img src="/user_data/images/nj-logo.png" width="180px" height="60px"></a></p>
+        <p class="copyright">
+            <small>copyright (c) {{ BaseInfo.shop_name }} all rights reserved.</small>
+        </p>
+    </div>
+</div>
+</div>
+</div>

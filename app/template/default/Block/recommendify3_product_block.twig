@@ -1,0 +1,55 @@
+{#
+# This file is part of the Recommendify3-plugin package.
+#
+# (c) Nobuhiko Kimoto All Rights Reserved.
+#
+# For the full copyright and license information, please view the LICENSE
+# file that was distributed with this source code.
+#}
+<script src="{{ app.config.user_data_urlpath }}/js/owl.carousel.min.js"></script>
+<link rel="stylesheet" href="{{ app.config.user_data_urlpath }}/css/owl.carousel.min.css?v={{ constant('Eccube\\Common\\Constant::VERSION') }}">
+<link rel="stylesheet" href="{{ app.config.user_data_urlpath }}/css/owl.theme.min.css?v={{ constant('Eccube\\Common\\Constant::VERSION') }}">
+<script>
+    $(function(){
+        $('.owl-carousel').owlCarousel({
+            responsive: true,
+            items : 5,
+        });
+    });
+</script>
+{% if not Recommendify3Products is empty %}
+<h2 class="heading row "></h2>
+<h4 class="recommendify col-md-12" style="font-family:myFirstFont!important; text-align:center; font-size: 30px; font-weight: normal;">Bought items</h4>
+<p class="small col-md-12" style="margin-bottom:10px">✦ 一緒に買われている商品 ✦</p>
+{% endif %}
+<div class="owl-carousel">
+    {% for Product in Recommendify3Products %}
+    <div class="item" style="padding:0 10px;">
+        <a href="{{ url('product_detail', {'id': Product.id}) }}">
+            <div class="item_photo">
+                <img src="{{ app.config.image_save_urlpath }}/{{ Product.main_list_image|no_image_product }}">
+            </div>
+            <dl>
+                <dt class="item_name">{{ Product.name }}</dt>
+                {% if Product.description_list %}
+                <dd class="item_comment">{{ Product.description_list|raw|nl2br }}</dd>
+                {% endif %}
+                {% if Product.hasProductClass %}
+                {% if Product.getPrice02Min == Product.getPrice02Max %}
+                <dd class="item_price">
+                    {{ Product.getPrice02IncTaxMin|price }}
+                </dd>
+                {% else %}
+                <dd class="item_price">
+                    {{ Product.getPrice02IncTaxMin|price }} ～ {{ Product.getPrice02IncTaxMax|price }}
+                </dd>
+                {% endif %}
+                {% else %}
+                <dd class="item_price">{{ Product.getPrice02IncTaxMin|price }}</dd>
+                {% endif %}
+            </dl>
+        </a>
+    </div>
+    {% endfor %}
+
+</div>

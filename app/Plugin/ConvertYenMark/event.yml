@@ -1,0 +1,4 @@
+Cart/index.twig:
+    - [onCartIndexRender, NORMAL]
+Product/detail.twig:
+    - [onProductDetailRender, NORMAL]

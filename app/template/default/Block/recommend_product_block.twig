@@ -1,0 +1,68 @@
+{#
+ * This file is part of the Recommend Product plugin
+ *
+ * Copyright (C) 2016 LOCKON CO.,LTD. All Rights Reserved.
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+#}
+<style>
+ .recom{
+padding-top:15px;
+}
+.item_price {
+              text-align: center;
+              font-size: 16px;
+              color:black;
+             font-weight:800;
+              }
+
+</style>
+<!-- ▼item_list▼ -->
+<link rel="stylesheet" type="text/css" href="../user_data/css/osusume1.css">
+<div class="row title recom">
+<h4 class="col-md-12">Recommend
+<p class="small">✦  おすすめ商品 ✦ </p></h4>
+<div class="wrapp">
+<div id="item_list hien">
+    <div class="row carousel1 border" data-flickity='{ "autoPlay": true,"freeScroll": true,"groupCells": 4,"wrapAround": true}'>
+        {% for RecommendProduct in recommend_products %}
+            <div class="five-co carousel-cell">
+                <div class="pickup_item">
+                    <a href="{{ url('product_detail', {'id': RecommendProduct.Product.id}) }}">
+                        <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ RecommendProduct.Product.mainFileName|no_image_product }}" alt="{{ RecommendProduct.Product.name }}"></div>
+                      <!---  <div class="h-name item-comment" class="comment">{{ RecommendProduct.comment|raw|nl2br }}</div>-->
+                        <dl>
+                      <!--<dt class="item_name">{{ RecommendProduct.Product.name }}</dt>--> 
+                       <div class="h-name">
+                                    <script>
+                                    <!--
+                                    var x = "{{ RecommendProduct.Product.name }}";
+                                    document.write(x.slice(0,26)); //-->
+                                    </script>...
+                                    </div>
+
+                            <dd class="item_price">
+                                {% if RecommendProduct.Product.hasProductClass %}
+                                    {% if RecommendProduct.Product.getPrice02Min == RecommendProduct.Product.getPrice02Max %}
+                                        {{ RecommendProduct.Product.getPrice02IncTaxMin|price }}
+                                    {% else %}
+                                        {{ RecommendProduct.Product.getPrice02IncTaxMin|price }} ～ {{ RecommendProduct.Product.getPrice02IncTaxMax|price }}
+                                    {% endif %}
+                                {% else %}
+                                    {{ RecommendProduct.Product.getPrice02IncTaxMin|price }}
+                                {% endif %}
+                            </dd>
+                        </dl>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+</div>
+</div>
+
+<script src="../user_data/flickity/flickity.pkgd.min.js"></script>
+
+<!-- ▲item_list▲ -->

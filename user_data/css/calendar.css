@@ -1,0 +1,50 @@
+
+.calendar_title{
+	color: #563924;
+	height: 35px;
+	line-height: 35px;
+	margin-top: 25px;
+	padding-left: 40px;
+}
+.calendar_title h4 {
+	height: 35px;
+	line-height: 35px;   
+	margin: 2px 0;
+	margin-left: 30px;
+	font-size: 13px;
+	color: #563924;
+}
+#calendar {
+	margin: 0px;
+
+}
+.calendarOver{
+	float: left;
+	margin-bottom:2px;
+	padding-bottom: 10px;
+	border-left-width:5px;
+}
+.calendar thead {
+    background: #f0f0f0;
+}
+.calendar th, .calendar td{
+	border: 1px solid rgba(128, 128, 128, 0.11);
+}
+#calendar th#sunday {
+    color: #bd031d;
+}
+#calendar .holiday {
+    background: #ff8e9d;
+}
+#calendar table tbody tr:last-child{
+	display: none;
+}
+@media only screen and (min-width: 768px){
+.calen{
+	margin: auto;
+	width:25%;
+	position: absolute;
+	top: 0;
+	right: 6%;
+}
+}

@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="/user_data/css/category_all.css">
+<style>
+.title h4 {
+    padding-top: 5px;
+}
+.sanpham1:nth-child(7) a{
+padding: 13px 0px 13px 24px;
+}
+</style>
+<div class="pc">
+  <div class="row ">
+    <div class="col-sm-12">
+
+      <div id="" class="title">
+        <h4>  Category
+<p class="small"> ✦  カテゴリ一覧  ✦</p></h4>
+        <div class="">
+          <div class="">
+
+            {% macro tree(Category) %}
+			{% if Category.id != 63 %}
+            <li class=" sanpham1">
+                <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    {{ Category.name }}
+                </a>
+ {% if Category.children|length > 0 %}
+              
+                <ul class="sub_category">
+               <li>
+                <a href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    すべて
+                </a>
+                </li>
+                  {% for ChildCategory in Category.children %}
+                    {{ _self.tree(ChildCategory) }}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+			{% endif %}
+          {% endmacro %}
+
+            <ul class="category-nav5">
+              {% for Category in Categories %}
+              {{ _self.tree(Category) }}
+              {% endfor %}
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

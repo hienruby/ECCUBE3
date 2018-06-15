@@ -1,0 +1,291 @@
+{#
+* Plugin Name : SalesRanking
+*
+* Copyright (C) 2015 BraTech Co., Ltd. All Rights Reserved.
+* http://www.bratech.co.jp/
+*
+* For the full copyright and license information, please view the LICENSE
+* file that was distributed with this source code.
+#}
+
+<!--売上ランキング-->
+{% if ItemList %}
+<link rel="stylesheet" type="text/css" href="/user_data/css/ranking1.css">
+<style>
+
+</style>
+<div id="sales_ranking" class="item_gallery title">
+  <h4 class="">Ranking
+<p class="small">✦ 売上ランキング ✦</p>
+</h4>
+<div class="tab">
+   <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'All')"><img src="/user_data/images/selectall1.png"><img src="/user_data/images/selectall.png"><span>全商品</span></button>
+  <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'tops')"><img src="/user_data/images/shirt2.png"><img src="/user_data/images/shirt3.png"><span>トップス</span></button>
+  <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'bottoms')"><img src="/user_data/images/women-pant1.png"><img src="/user_data/images/women-pants.png"><span>ボトムス</span></button>
+  <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'dress')"> <img src="/user_data/images/dress1.png"> <img src="/user_data/images/dress3.png"><span>ドレス</span></button>
+  <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'suit')"> <img src="/user_data/images/icon.png"><img src="/user_data/images/coat1.png"><span>スーツ</span></button>
+  <button class="tablinks col-md-2 col-sm-2 col-xs-2" onclick="openCity(event, 'shoes')"><img src="/user_data/images/shoes1.png"><img src="/user_data/images/shoes3.png"><span>シューズ</span></button>
+</div>
+
+<div id="All" class="tabcontent" style="display: block;">
+<h3 class="all-product"　>全商品</h3>
+  <div class="row border ichi">
+      {% for Item in ItemList|slice(0,10) %}
+        <div class="five-co  f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,26)); //-->
+                                    </script>...
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endfor %}
+    </div>
+  </div>
+
+<div id="tops" class="tabcontent" >
+  <h3>トップス</h3>
+  <div class="row border ichi">
+  {% for Item in ItemList if Item.belongsToCategory(6) %}
+  {% if loop.index0 < 10 %}
+        <div class="five-co f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,35)); //-->
+                                    </script>
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+<div id="bottoms" class="tabcontent">
+  <h3>ボトムス</h3>
+  <div class="row border ichi">
+  {% for Item in ItemList if Item.belongsToCategory(2) %}
+  {% if loop.index0 < 10 %}
+        <div class="five-co f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,35)); //-->
+                                    </script>
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+<div id="dress" class="tabcontent">
+  <h3>ドレス</h3>
+  <div class="row border ichi">
+  {% for Item in ItemList if Item.belongsToCategory(15) %}
+  {% if loop.index0 < 10 %}
+        <div class="five-co f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,35)); //-->
+                                    </script>
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+    {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div id="suit" class="tabcontent">
+  <h3>スーツ</h3>
+  <div class="row border ichi">
+  {% for Item in ItemList if Item.belongsToCategory(14) %}
+  {% if loop.index0 < 10 %}
+        <div class="five-co f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,35)); //-->
+                                    </script>
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+<div id="shoes" class="tabcontent">
+  <h3>シューズ</h3>
+  <div class="row border ichi">
+      {% for Item in ItemList if Item.belongsToCategory(1) %}
+    {% if loop.index0 < 10 %}
+        <div class="five-co f vitri_item">
+            <div class="pickup_item">
+                <a href="{{ url('product_detail', {'id': Item.id}) }}">
+                  <span class="label-warning">No.{{loop.index}}</span>
+                    <div class="item_photo"><img src="{{ app.config.image_save_urlpath }}/{{ Item.main_list_image|no_image_product }}"></div>
+                    <dl class="s-phai">
+                      <dt class="item_name"></dt>
+  
+                                     <div class="h-name h">
+                                    <script>
+                                    var x = "{{Item.name}}";
+                                    document.write(x.slice(0,35)); //-->
+                                    </script>
+                                    </div>
+                      <dd class="item_price">
+                      {% if Item.hasProductClass -%}
+                          {% if Item.getPrice02Min == Item.getPrice02Max %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% elseif Item.getPrice02Min is not null and Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span> ～ <span class="price01_default">{{ Item.getPrice02IncTaxMax|price }}</span></p>
+                          {% endif %}
+                      {% else -%}
+                          {% if Item.getPrice02Max is not null %}
+                          <p class="normal_price"><span class="price01_default">{{ Item.getPrice02IncTaxMin|price }}</span></p>
+                          {% endif %}
+                      {% endif -%}
+                    </dd>
+                    </dl>
+                </a>
+            </div>
+          </div>
+      {% endif %}
+      {% endfor %}
+    </div> </div>
+
+</div>
+
+
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+{% endif %}

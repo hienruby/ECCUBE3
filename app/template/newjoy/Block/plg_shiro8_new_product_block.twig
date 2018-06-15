@@ -1,0 +1,88 @@
+{#
+            This file is part of EC-CUBE
+
+            Copyright(c) 2000-2015 LOCKON CO.,LTD. All Rights Reserved.
+
+            http://www.lockon.co.jp/
+
+            This program is free software; you can redistribute it and/or
+            modify it under the terms of the GNU General Public License
+            as published by the Free Software Foundation; either version 2
+            of the License, or (at your option) any later version.
+
+            This program is distributed in the hope that it will be useful,
+            but WITHOUT ANY WARRANTY; without even the implied warranty of
+            MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+            GNU General Public License for more details.
+
+            You should have received a copy of the GNU General Public License
+            along with this program; if not, write to the Free Software
+            Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+            #}
+<link rel="stylesheet" href="/user_data/css/new_product1.css">
+<style>
+@font-face {
+  font-family: myFirstFont;
+  src: url('/user_data/font/DIDOTLTSTD-ITALIC_2.OTF');
+}
+
+.title h4 {
+  font-family:myFirstFont!important;
+  text-align:center;
+  font-size: 30px;
+  font-weight: normal;
+}
+</style>
+<div class="row border">
+            <div id="contents_top" class="col-md-12 title">
+<h4 class="col-md-12 ">New item
+<p class="small">✦  新商品 ✦ </p>
+</h4>
+       <div id="item_list border">
+                    <div class="row">
+                        {% if Products|length > 0 %}
+                            {% for Product in Products %}
+                                <div class="five-co">
+                                    <div class="pickup_item">
+                                        <a href="{{ url('product_detail', {'id': Product.id}) }}">
+                                            <div class="item_photo">
+                                                <div class="tagCtrol">NEW</div>
+                                                <img src="{{ app.config.image_save_urlpath }}/{{ Product.main_list_image|no_image_product }}">
+                                            </div>
+                                            {% if Product.description_list %}
+                                                <p class="item_comment text-warning">{{ Product.description_list|raw|nl2br }}</p>
+                                            {% endif %}
+                                            <dl>
+                                              <!--<dt class="item_name">{{ Product.name }}</dt>-->
+                                     <div class="h-name">
+                                    <script>
+                                    <!--
+                                    var x = "{{ Product.name }}";
+                                    document.write(x.slice(0,26)); //-->
+                                    </script>...
+                                    </div>
+                                                
+                                                {% if Product.hasProductClass %}
+                                                    {% if Product.getPrice02Min == Product.getPrice02Max %}
+                                                        <dd class="item_price">{{ Product.getPrice02IncTaxMin|price }}</dd>
+                                                    {% else %}
+                                                        <dd class="item_price">{{ Product.getPrice02IncTaxMin|price }} ～ {{ Product.getPrice02IncTaxMax|price }}</dd>
+                                                    {% endif %}
+                                                {% else %}
+                                                    <dd class="item_price">{{ Product.getPrice02IncTaxMin|price }}</dd>
+                                                {% endif %}
+                                                
+                                            </dl>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+
+                        {% endif %}
+                    </div>
+
+                  </div>
+            </div>
+            <div class="col-md-2 col-md-offset-10 motto" id="motto"><a href="http://newjoy.co.jp/products/list?mode=&category_id=&name=&pageno=1&disp_number=30&orderby=2">もっと見る</a></div>
+</div>

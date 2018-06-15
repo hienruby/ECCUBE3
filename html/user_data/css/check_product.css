@@ -1,0 +1,55 @@
+
+@font-face {
+  font-family: myFirstFont;
+  src: url('/user_data/font/DIDOTLTSTD-ITALIC_2.OTF');
+}
+
+.title h4 {
+  font-family:myFirstFont!important;
+  text-align:center;
+  font-size: 30px;
+  font-weight: normal;
+}
+#checkeditem .heading {
+  text-align: center;
+  margin: 0;
+}
+#checkeditem .heading01 {
+  background: transparent;
+  font-size: 100%;
+  padding: 0;
+  margin: 0;
+  line-height: 39px;
+  text-align: center;
+  color: black;
+  font-weight: 400;
+}
+#checkeditem .heading02 {
+  background: transparent;
+  font-size: 60%;
+  text-align: right;
+  padding: 0;
+  margin: 0;
+}
+.h-name{
+  color:black;
+  text-align:center;
+}
+.xoa {
+    color: #090909;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border: 1px solid #d4d4d5;
+    border-radius: 5px;
+    position: relative;
+    top: -40px;
+}
+.small {
+  text-align:center;
+}
+@media screen and (max-width: 600px) {
+  
+.xoa {
+    top: 0px;
+}
+}

@@ -1,0 +1,85 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/user_data/css/admin3.css">
+<link rel="stylesheet" href="/user_data/css/sm-category2.css">
+<style>
+.p {
+    padding-left: 0px!important;
+}
+.p2:hover { 
+  color: #d6a4b0;
+}
+.tt{
+   font-size: 16px;
+    padding-left: 15px;
+    padding: 5px;
+    font-weight: bold;
+    border: 1px solid #e8e8e8;
+    margin: 0 16px;
+margin-left: 0;
+}
+.fa-hien:before{
+content:"+";
+}
+.j{
+margin-left:0!important;
+}
+.treeview-menu1 .j{
+padding-right:0!important;
+}
+
+</style>
+<div class="pp sp-cat2 drawer_block pc">
+<div id="" class="title">
+<p class="tt"> カテゴリ一覧 </p>
+            <div class="navbar-default sidebar1" >
+                <div class="sidebar-nav1 ">
+            {% macro tree(Category) %}
+            {% if Category.id != 63 %}
+            <li class="v  j treeview1 col-xs-12">
+               <a class="p2" href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    {{ Category.name }}
+         <span class=" s pull-right-container">
+         <i class="fa fa-hien pull-right"></i>
+            </span>                </a>        
+              {% if Category.children|length > 0 %}
+                
+                <ul class="treeview-menu1 p">
+              <li class=" j col-xs-12">
+                <a class="p2" href="{{ url('product_list') }}?category_id={{ Category.id }}">
+                    すべて
+                </a>
+                </li>
+                  {% for ChildCategory in Category.children %}
+                    {{ _self.tree(ChildCategory) }}
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </li>
+            {% endif %}
+            {% endmacro %}
+              <ul class="sidebar-menu1 " data-widget="tree1">
+              {% for Category in Categories %}
+              {{ _self.tree(Category) }}
+              {% endfor %}
+            </ul>
+                </div>
+                <!-- /.sidebar-collapse -->
+            </div>
+</div>
+</div>
+<script src="/user_data/js/adminlte.js"></script>
+<script>
+(function($){
+    $('.treeview1> a ').on('click',function(){
+        if($(this).hasClass('open1')){
+            $(this).removeClass('open1');
+            $(this).next().slideUp();
+           
+        }
+        else{
+            $('.treeview-menu1 li').removeClass('treeview1');
+            $(this).next().slideDown();
+        }
+    });
+})(jQuery);
+</script>

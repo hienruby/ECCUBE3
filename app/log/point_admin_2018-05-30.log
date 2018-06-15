@@ -1,0 +1,1 @@
+[2018-05-30 16:42:14] [5c62f126] plugin.point.INFO: save start [] {"process_id":24499,"url":"/admin/customer/new","ip":"219.119.139.79","http_method":"POST","server":"newjoy.co.jp","referrer":"https://newjoy.co.jp/admin/customer/new","class":"Plugin\\Point\\Event\\WorkPlace\\AdminCustomer","function":"save","line":90}

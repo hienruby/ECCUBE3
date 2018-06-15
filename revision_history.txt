@@ -1,0 +1,56 @@
+Designed On 2018.04.01 By.Admin
+
+Update On 2018.04.03 By.Kanbe
+#description の文字数変更（50→200文字）
+/public_html/newjoy.co.jp/src/Eccube/Form/Type/Admin/MainEditType.php
+107：['stext_len'] => ['mtext_len']
+
+#規格登録数を増やすため.htaccess ファイル追加
+/public_html/newjoy.co.jp/.htaccess
+1：php_value max_input_vars 10000
+
+Update On 2018.04.03 By.Kanbe
+#ランキング表示の改善
+##ランキング表示のためのメソッド追加
+/public_html/newjoy.co.jp/src/Eccube/Entity/Product.php
+1021-1045:
+    /**
+     * 商品がカテゴリーに属しているかどうかチェックする 子カテゴリーは考慮しない
+     * @param $category \Eccube\Entity\Category|integer|string
+     * @return bool
+     */
+    public function belongsToCategory($category)
+    {
+        if ($category instanceof \Eccube\Entity\Category) {
+            $category = $category->getId();
+        }
+        foreach ($this->ProductCategories as $C) {
+            if (is_int($category)) {
+                if ($C->getCategoryId() === $category) {
+                    return true;
+                }
+            } else if (is_string($category)) {
+                if ($C->getCategory()->getName() === $category) {
+                    return true; // もし同じ名前のカテゴリーが複数登録されていればこの比較はできません
+                }
+            } else {
+                // throw new \Exception()など
+            }
+        }
+        return false;
+    }
+##ランキング表示のために上限撤廃
+/public_html/newjoy.co.jp/app/Plugin/SalesRanking/Controller/SalesRankingController.php
+57:		->groupBy('p.id')
+58：		->setMaxResults($num);
+=>
+57:		->groupBy('p.id');
+
+#サイト内検索で商品コードやフリーエリアを対象にする
+/public_html/newjoy.co.jp/src/Eccube/Repository/ProductRepository.php
+111：
+            ->andWhere(sprintf ('p.name LIKE :%s OR p.search_word LIKE :%s OR p.description_detail LIKE :%s', $key, $key, $key))
+=>
+111：
+            ->andWhere(sprintf ('p.name LIKE :%s OR p.search_word LIKE :%s OR p.free_area LIKE :%s OR p.description_detail LIKE :%s', $key, $key, $key, $key))
+

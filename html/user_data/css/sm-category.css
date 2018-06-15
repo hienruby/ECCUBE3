@@ -1,0 +1,41 @@
+.sidebar-menu li > a {
+   position: relative;
+   border-bottom: 1px solid #e8e8e8;
+    color: black;
+}
+.sidebar-menu li >  ul> li>a {
+    padding-left: 15px!important;
+}
+.treeview-menu {
+    padding-left: 15px;
+}
+.treeview-menu>li> a>.s{
+display:none;
+}
+
+.sidebar-menu li > a {
+    position: relative;
+    border-bottom: 1px solid #e8e8e8;
+    color: black;
+    background-color: white;
+    background-image: url(/user_data/images/2216.jpg);
+    background-repeat: no-repeat;
+    background-size: 5px 100%;
+    margin: 0;
+    padding: 0 0 0 10px;
+    position: relative;
+    z-index: 2;
+}
+.p2 {
+    padding: 7px 5px 7px 15px!important;
+    display: block;
+}
+.treeview:nth-child(1) ul li a, .treeview:nth-child(2) ul li a, .treeview:nth-child(3) ul li a, .treeview:nth-child(4) ul li a, .treeview:nth-child(5) ul li a, .treeview:nth-child(6) ul li a, .treeview:nth-child(7) ul li a, .treeview:nth-child(8) ul li a, .treeview:nth-child(9) ul li a, .treeview:nth-child(10) ul li a, .treeview:nth-child(11) ul li a, .treeview:nth-child(12) ul li a{
+  background:none;
+}
+
+@media only screen and (min-width: 768px){
+.sm{
+display:none;
+}
+}

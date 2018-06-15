@@ -1,0 +1,70 @@
+.item_name{
+    font-size: +2;
+}
+.tagCtrol {
+    border: 1px solid;
+    width: 50px;
+    font-size: 13px;
+    text-align: center;
+    position: relative;
+    top: -7px;
+    color: #f5b04e;
+}
+
+.headingEdit {
+    padding: 0px;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 15px;
+    background: #ad8a57;
+    margin: 0;
+}
+.heading01Edit {
+    background: transparent;
+    float: left;
+    font-size: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    line-height: 39px;
+    color: white;
+}
+
+.motto{
+    padding: 8px;
+    text-align: center;
+}
+.motto a{
+    color: black;
+    display: block;
+    padding: 5px;
+    border: 1px solid #dcdcdd;
+}
+.motto a {
+    color:gray;
+    display: block;
+    padding: 9px;
+    border: 1px solid #dcdcdd;
+    border-radius: 5px;
+}
+.motto a::after{
+    content: "›";
+    float: right;
+}
+.h-name{
+    color: black;
+}
+@media only screen and (min-width: 768px)
+{
+.front_page #contents .row {
+    padding-bottom: 0; 
+}
+
+}
+@media only screen and (max-width: 768px)
+{
+
+.tagCtrol {
+    
+}
+}

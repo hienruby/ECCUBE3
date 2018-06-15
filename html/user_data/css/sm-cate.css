@@ -1,0 +1,105 @@
+.sidebar-menu li > a {
+   position: relative;
+   border-bottom: 1px solid #e8e8e8;
+    color: black;
+    padding-left: 40px!important;
+}
+.sidebar-menu li >  ul> li>a {
+    padding-left: 15px!important;
+}
+.treeview-menu {
+    padding-left: 15px;
+}
+.treeview-menu>li> a>.s{
+display:none;
+}
+.sidebar-menu li ul li >a {
+    color: black;
+    font-size: 12px;
+    padding: 10px 3px;
+}
+.treeview:nth-child(1) a {
+    background: url(/user_data/images/shirt2.png);
+    background-size: 24px;
+    background-repeat: no-repeat;
+    background-position: 12px center;
+}
+.treeview:nth-child(1) ul li a, .treeview:nth-child(2) ul li a, .treeview:nth-child(3) ul li a, .treeview:nth-child(4) ul li a, .treeview:nth-child(5) ul li a, .treeview:nth-child(6) ul li a, .treeview:nth-child(7) ul li a, .treeview:nth-child(8) ul li a, .treeview:nth-child(9) ul li a, .treeview:nth-child(10) ul li a, .treeview:nth-child(11) ul li a, .treeview:nth-child(12) ul li a{
+  background:none;
+}
+.treeview:nth-child(2) a{ 
+  background: url(/user_data/images/women-pant1.png);
+  background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.treeview:nth-child(3) a{ 
+   background: url(/user_data/images/women-coat1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.treeview:nth-child(4) a{ 
+   background: url(/user_data/images/icon.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.treeview:nth-child(5) a{ 
+   background: url(/user_data/images/dress1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.treeview:nth-child(6) a{ 
+    background: url(/user_data/images/dance1.png);
+    background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.treeview:nth-child(7) a{ 
+   background: url(/user_data/images/bath1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.treeview:nth-child(8) a{ 
+   background: url(/user_data/images/shoes1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.treeview:nth-child(9) a{ 
+    background: url(/user_data/images/man1.png);
+    background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.treeview:nth-child(10) a{ 
+   background: url(/user_data/images/kid1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+.treeview:nth-child(11) a{ 
+   background: url(/user_data/images/bag1.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+
+.treeview:nth-child(12) a{ 
+   background: url(/user_data/images/book2.png);
+   background-size: 24px;
+   background-repeat: no-repeat;
+   background-position: 12px center;
+}
+@media only screen and (min-width: 768px){
+.sm{
+display:none;
+}
+}
